@@ -5,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Ventana {
+public class Ventana extends JFrame{
 	private final int ANCHO = 1000;
 	private final int ALTO = 500;
 	private JTable tabla;
@@ -13,25 +13,23 @@ public class Ventana {
 	public Ventana() {
 		actualizarTabla();
 		South s = new South(this, north, tabla);
-		JFrame frame = new JFrame("Gestor");
 
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-
-		frame.add(s, BorderLayout.SOUTH);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		add(s, BorderLayout.SOUTH);
 		JScrollPane scroll = new JScrollPane(tabla);
 
-		frame.add(scroll, BorderLayout.CENTER);
+		add(scroll, BorderLayout.CENTER);
 
-		frame.setSize(ANCHO, ALTO);
+		setSize(ANCHO, ALTO);
 
 
-		frame.add(north, BorderLayout.NORTH);
+		add(north, BorderLayout.NORTH);
 
 
 
 		// Esto se deja al final
-		frame.setVisible(true);
+		setVisible(true);
 	}
 
 	public void actualizarTabla() {
